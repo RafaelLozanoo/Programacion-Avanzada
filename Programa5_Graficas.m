@@ -5,7 +5,7 @@ clc
 %%Graficas en 1D
 %Primera forma. es menos exacta x=-pi:0.5:pi
 
-x=linspace(-pi,pi,50)
+x=linspace(-pi,pi,5)
 y=sin(x)
 %Grafica con estilos:
 subplot (1,3,1) %divide las ventanas en filas y columnas
@@ -58,3 +58,27 @@ axis tight; %Ajusta tamaño de la grafica a la ventana
 ylim([-5,5]);
 xlim([-2,2]);
 legend('Seno','Coseno','Tangente')
+
+%% Graficas en 2D
+A=repmat(y,500,5)
+%Primera opcion
+imagesc(A);
+colormap autumn
+title('Grafica de funcion seno');
+xlabel('Eje X')
+ylabel('Eje Y')
+%Segunda opcion 
+imshow(A); %muestra imagen en tamaño real
+
+%%Graficas en 3D
+surf (A)
+shading interp    %Sombreado
+xlabel('Eje X');
+ylabel('Eje Y');
+zlabel('Eje Z');
+grid on;
+
+view(60,30) %Establece la perspectiva de la grafica
+%az --> Azimut
+%el --> Elevacion
+ rotate3d on 
