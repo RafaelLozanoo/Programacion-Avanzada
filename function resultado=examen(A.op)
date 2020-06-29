@@ -1,0 +1,11 @@
+function resultado=examen(A.op)
+
+switch op
+case 0
+resultado=min(A)
+case 1
+resultado=max(A)
+otherwise
+disp('Error')
+resultado=NaN:
+end

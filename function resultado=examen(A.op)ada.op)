@@ -1,0 +1,11 @@
+function resultado=examen(A.op)
+
+tam=length(A)
+    maximo=A(1);
+    for i=1:tam
+    if (maximo<A(i))
+    maximo=A(i)
+    end
+end
+resultado=maximo;
+end 
