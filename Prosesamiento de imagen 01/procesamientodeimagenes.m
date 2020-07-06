@@ -73,3 +73,59 @@ for i=1:f
     end
 end
 imshow(imagenbin);
+
+imagen1=im2bw(imgris); %Funcion de matlab para binarizar la imagen
+figure; imshow(imagen1);
+
+%%Negativo de una imagen
+imagen=imread('IMG03.jpg');
+imshow(imagen);
+imgris=rgb2gray(imagen);
+[f c d]=size(imagen);
+figure; imshow (imgris);
+
+for i=1:f
+    for j=1:c
+        imneg(i,j)=255-imgris(i,j);
+    end
+end
+figure; imshow(imneg);
+imagen1=imcomplement(imgris);
+figure; imshow(imagen1);
+
+imagen2=imcomplement(imagen);
+figure; imshow(imagen2);
+
+%%
+
+imagen=imread('IMG05.jpg');
+imgris=rgb2gray(imagen);
+imshow(imgris);
+
+imbin=im2bw(imgris,0.85);
+figure; imshow(imbin);
+imbin1=imcomplement(imbin); % Invirtirtiendo la seleccion
+
+% Imagen binarizada --> Mascaras
+imr=imagen(:,:,1);
+imr=imagen(:,:,2);
+imr=imagen(:,:,3);
+%%
+
+[f c d]=size(imagen);
+for i=1:f
+    for j=1:c
+        if (imbin1(i,j)==0)%Es negro
+            imr(i,j)=255;
+            imr(i,j)=0;
+            imr(i,j)=0;
+        end
+    end
+end
+imagenr(:,:,1)=imr;
+imagenr(:,:,2)=img;
+imagenr(:,:,3)=imb;
+figure; imshow(imagenr);
+
+
+
